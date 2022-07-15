@@ -1,5 +1,6 @@
 {{ config(materialized='table', unlogged=True) }}
 
+with tongfenxuanshou1 as (
 with tongfenxuanshou as (
     select col6,
            col7,
@@ -17,4 +18,5 @@ with tongfenxuanshou as (
     from fh_data.airbyte_fh_mytable_mt
              left join fh_data.airbyte_fh_mytable_dist using (col6, col7, col8)
     order by col6 desc)
-select * from tongfenxuanshou
+select * from tongfenxuanshou)
+select * from tongfenxuanshou1
